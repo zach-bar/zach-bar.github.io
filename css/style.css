@@ -5,8 +5,8 @@ body {
   padding: 0;
 }
 
-#portfolio-page {
-  background-color: #000033;
+#portfolio-page, #blog-page, #about-page, #projects-page, #contact-page{
+  background-color: #000026;
   color: #fff;
   width: 100vw;
   height: 100%;
@@ -24,7 +24,7 @@ body {
 #navbar {
     left:0%;
     right:0%;
-    background-color: #000033;
+    background-color: #000026;
     position: fixed;
     top: 0px;
     display: block;
@@ -145,6 +145,7 @@ body {
   display: flex;
   font-family: "Nobel", san-serif;
   font-style: normal;
+  background-color: #000033;
 }
 
 #homepage h3{
@@ -152,12 +153,14 @@ body {
   text-align: center;
   position: static;
   font-size: 30px;
+  cursor:default;
 }
 
 #homepage h1{
   color: #fff;
   text-align: center;
   font-size: 250%;
+  cursor:default;
 }
 
 #divider1{
@@ -456,6 +459,11 @@ body {
   height: 150vh;
 }
 
+#project-column {
+  width: 100%;
+  height: 100vh;
+}
+
 #projects {
   width: 100%;
   margin: 0;
@@ -464,12 +472,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #000033;
 }
 
 #project-intro{
   margin-top: 20px;
   text-align: center;
   font-family: "Nobel", sans-serif;
+  background-color: #000033;
+  margin-bottom: 0px;
+  padding-bottom: 20px;
 }
 
 .project-slider{
@@ -638,6 +650,7 @@ body {
 #contact {
   width: 100%;
   height: 80vh;
+  background-color: #000033;
 }
 
 #contact h1{
@@ -749,24 +762,85 @@ input[type=submit]:hover {
   height: 100vh;
   width: 100%;
   background-color: #000026;
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  position: relative;
 }
 
 #blogs-column {
   width: 100%;
-  height: 100%;
-}
-
-#blog {
-  border:5px solid #cb6ec6;
-  width: 20%;
+  max-height: 100%;
   display: flex;
-  margin: 10vh 15vw 10vh;
+  background-color: #000026;
+  position: absolute;
 }
 
-#blog img {
-  background-size: contain;
+.blog {
+  border:1px solid #cb6ec6;
+  width: 20%;
+  height: 55vh;
+  margin: 20vh 6vw 10vh;
+  background-color: #00001a;
+  color: #fff;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
 }
 
+.blog img {
+  width: 100%;
+  height: 50%;
+  object-fit: contain;
+}
+
+#blogpost {
+  display: block;
+  width: 80%;
+  height: 100%;
+  margin: 60px auto 60px;
+}
+
+#blogpost img {
+  width: 70%;
+  height: 80%;
+  object-fit: contain;
+  display: block;
+  margin: 10px auto 10px;
+}
+
+#blogpost h1 {
+  font-size: 300%;
+  text-align: center;
+}
+
+#blogpost p {
+  font-size: 150%;
+  text-indent: 40px;
+}
+
+#blogpost h3 {
+  color: #757575;
+  text-align: center;
+}
+
+#blogpost h2{
+  font-size: 300%;
+  font-weight: 2000%;
+  text-align: center;
+}
+
+#blogpost button {
+  left: 20px;
+  margin-top: 10px;
+  background-color: #cb6ec6;
+  border: hidden;
+  border-radius: 10%;
+  color: #fff;
+  font-size: 150%;
+  cursor: pointer;
+}
 
 /* For computer screen */
 
@@ -808,7 +882,7 @@ input[type=submit]:hover {
 
 @media only screen and (min-width: 768px) {
 
-  #portfolio-page {
+  #portfolio-page, #blog-page, #about-page, #projects-page, #contact-page {
     --nav-height: 75px;
   }
 

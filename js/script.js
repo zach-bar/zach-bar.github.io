@@ -1,3 +1,8 @@
+function show(shown, hidden) {
+  document.getElementById(shown).style.display='block';
+  document.getElementById(hidden).style.display='none';
+  return false;
+}
 function toggleMenu(x) {
     x.classList.toggle("change");
   }
@@ -26,6 +31,7 @@ window.addEventListener("scroll", () => {
     }
     lastScrollY = window.scrollY;
 });
+
 
 let projects = [
     {
@@ -163,27 +169,5 @@ function changeCert(index){
   date.innerHTML = certificates[index].date;
 }
 
-let blogs = [
-  {
-    title: "ChatGPT, The Revolutionary Scapegoat",
-    image: "./assets/chatgpt.webp",
-    date: "March 30, 2023",
-  },
-]
-
-let blogColumn = document.getElementById('blogs-column');
-
-let blog = document.createElement('div');
-blog.id = 'blog';
-blogColumn.appendChild(blog);
-let blogImg = document.createElement('img');
-blogImg.src=blogs[0].image;
-blog.appendChild(blogImg);
-let blogName = document.createElement('h2');
-blogName.innerHTML = blogs[0].name;
-blog.appendChild(blogName);
-let blogDate = document.createElement('h3');
-blogDesc.innerHTML=blogs[0].date;
-blog.appendChild(blogDate);
 
 
