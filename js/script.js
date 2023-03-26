@@ -32,16 +32,6 @@ window.addEventListener("scroll", () => {
     lastScrollY = window.scrollY;
 });
 
-var typed = new Typed("#mml", {
-  strings: ["Web", "iOS", "Game", "Software"],
-  typeSpeed: 150,
-  backSpeed: 150,
-  fadeOutDelay: 1000,
-  startDelay: 1000,
-  loop: true,
-  fadeOut: true,
-  showCursor: false
-  })
 
 let projects = [
     {

@@ -23,9 +23,10 @@
                     </div>
                     </button>
                     <div class="dropdown-content">
-                    <a href="#about">ABOUT ME</a>
-                    <a href="#projects">PROJECTS</a>
-                    <a href="#contact">CONTACT ME</a>
+                    <a href="./about.html">ABOUT ME</a>
+                    <a href="./projects.html">PROJECTS</a>
+                    <a href="./blog.html">BLOGS</a>
+                    <a href="./contact.html">CONTACT ME</a>
                     </div>
                 </div>
                 <a class="logo" href="#homepage"><img src = "./assets/logo.png"></a>
@@ -40,6 +41,18 @@
                 <div class="container column" id="home-text">
                     <h3>Hi, my name is Zach, and I am a</h3>
                     <h1 id="typed"><i><span id="mml"></span>  Developer</i></h1>
+                    <script>
+                        var typed = new Typed("#mml", {
+                            strings: ["Web", "iOS", "Game", "Software"],
+                            typeSpeed: 150,
+                            backSpeed: 150,
+                            fadeOutDelay: 1000,
+                            startDelay: 1000,
+                            loop: true,
+                            fadeOut: true,
+                            showCursor: false
+                        })
+                    </script>
                 </div>
             </section>
             <div id="divider1"></div>
