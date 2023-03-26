@@ -795,6 +795,10 @@ input[type=submit]:hover {
   object-fit: contain;
 }
 
+.blog button {
+  z-index: 6;
+}
+
 #blogpost {
   display: block;
   width: 80%;
@@ -817,12 +821,18 @@ input[type=submit]:hover {
 
 #blogpost p {
   font-size: 150%;
+}
+
+.indent {
+  display: inline-block;
   text-indent: 40px;
 }
 
 #blogpost h3 {
   color: #757575;
   text-align: center;
+  position: relative;
+  padding-top: 20px;
 }
 
 #blogpost h2{
@@ -840,6 +850,12 @@ input[type=submit]:hover {
   color: #fff;
   font-size: 150%;
   cursor: pointer;
+}
+
+#blogpost p i {
+  float: right;
+  right: 80px;
+  font-family: 'Lucida Calligraphy', sans-serif;
 }
 
 /* For computer screen */
