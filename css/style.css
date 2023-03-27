@@ -494,7 +494,9 @@ body {
   width: 500%;
   height: 440px;
   display: flex;
+  /* position: absolute; */
 }
+
 .project-slides input{
   display: none;
 }
@@ -510,6 +512,23 @@ body {
   position: relative;
   font-family: "Nobel", sans-serif;
   background-color: #757575;
+  animation: none;
+  animation-duration: 1s;
+}
+
+#project{
+  animation: none;
+  animation-duration: 1s;
+}
+
+@keyframes right{
+  0% {left: 500px;}
+  100% {left: 0px;}
+}
+
+@keyframes left{
+  0% {right: 500px;}
+  100% {right: 0px;}
 }
 
 .slide h1{
@@ -570,13 +589,14 @@ body {
   width: 200px;
   height: 120px;
   display: flex;
-  overflow: hidden; 
+  /* overflow: hidden;  */
 }
 
 .cert-slides{
   width: 500%;
   height: 150px;
   display: flex;
+  position: initial;
 }
 
 .cert-slides input{
@@ -589,6 +609,14 @@ body {
   position: relative;
   text-align: center;
   font-family: "Nobel", sans-serif;
+  animation-name: none;
+  animation-duration: 1s;
+}
+
+@keyframes certAnimate{
+  0% {bottom: 0px;}
+  50% {bottom: 50px;}
+  100% {bottom: 0px;}
 }
 
 #certificate img{

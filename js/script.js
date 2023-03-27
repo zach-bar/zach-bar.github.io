@@ -69,7 +69,7 @@ let projects = [
 let projectColumn = document.getElementById('project-container');
 
 
-let project = document.createElement('div');
+const project = document.createElement('div');
 project.classList.add('slide');
 project.id = 'project';
 projectColumn.appendChild(project);
@@ -86,11 +86,27 @@ let lang = document.createElement('h3');
 lang.innerHTML=projects[0].language;
 project.appendChild(lang);
 
-
 let currentProjIndex = 0;
 let i = 0;
+let t;
+
 function changeProject(pressed){
+    let pos = document.getElementById('project-container').offsetWidth;
+    clearInterval(t);
     if(pressed == 'left'){
+      // console.log("left clicked " + pos);
+      // //user pushed right arrow
+      // project.style.left = -pos+"px";
+      // t = setInterval(function(){
+      //   if(pos <= 0) {
+      //     clearInterval(t);
+      //   }
+      //   else{
+      //     pos -= 5;
+      //     project.style.left = -pos+"px";
+      //   }
+      // }, 1);
+      project.style.animationName = "left";
       if(currentProjIndex != 0)
         currentProjIndex--;
       else
@@ -98,16 +114,30 @@ function changeProject(pressed){
     }
     else
     {
-      //user pushed right arrow
+      // console.log("right clicked " + pos);
+      // //user pushed right arrow
+      // project.style.left = pos+"px";
+      // t = setInterval(function(){
+      //   if(pos <= 0) {
+      //     clearInterval(t);
+      //   }
+      //   else{
+      //     pos -= 5;
+      //     project.style.left = pos+"px";
+      //   }
+      // }, 1);
+      project.style.animationName = "right";
       if(currentProjIndex != projects.length-1)
         currentProjIndex++;  
       else
         currentProjIndex = 0;    
     }
+    
     name.innerHTML = projects[currentProjIndex].name;
     img.src = projects[currentProjIndex].image;
     desc.innerHTML = projects[currentProjIndex].description;
     lang.innerHTML = projects[currentProjIndex].language;
+    setTimeout(() => {  project.style.animationName = "none"; }, 1000);
   }
 
 let certificates = [
@@ -163,10 +193,12 @@ date.innerHTML=certificates[0].date;
 cert.appendChild(date);
 
 function changeCert(index){
+  cert.style.animationName = "certAnimate";
   certImg.src = certificates[index].img;
   certName.innerHTML = certificates[index].name;
   certDesc.innerHTML = certificates[index].desc;
   date.innerHTML = certificates[index].date;
+  setTimeout(() => {  cert.style.animationName = "none"; }, 1000);
 }
 
 
