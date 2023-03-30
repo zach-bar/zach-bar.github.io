@@ -586,17 +586,18 @@ body {
 
 .cert-slider{
   margin-top: 10vh;
-  width: 200px;
-  height: 120px;
+  width: 350px;
+  height: 500px;
   display: flex;
   /* overflow: hidden;  */
 }
 
 .cert-slides{
-  width: 500%;
-  height: 150px;
+  width: 350px;
+  height: 500px;
   display: flex;
   position: initial;
+  perspective: 1000px;
 }
 
 .cert-slides input{
@@ -606,11 +607,32 @@ body {
 #certificate{
   width: 100%;
   transition: 2s;
+  transform-style: preserve-3d;
   position: relative;
   text-align: center;
   font-family: "Nobel", sans-serif;
   animation-name: none;
   animation-duration: 1s;
+}
+
+.cert-slides:hover .cert-slide{
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 350px;
+  height: 500px;
+}
+
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(180deg);
 }
 
 @keyframes certAnimate{
@@ -619,11 +641,22 @@ body {
   100% {bottom: 0px;}
 }
 
-#certificate img{
-  width: 150px;
-  height: 35px;
+#frontImg{
+  width: 250px;
+  height: 55px;
   padding-left:25px;
   padding-right:25px;
+  text-align: center;
+}
+
+#backImg{
+  padding-top: 100px;
+  justify-content: center;
+  align-items: center;
+  height: 300%;
+  overflow:visible;
+  object-fit: cover;
+  
 }
 
 .manual-nav{
@@ -658,20 +691,19 @@ body {
   margin-top: 140px;
 }
 
-#certificate h2{
+.front h2{
   font-size: 80%;
-  text-align: center;
 }
 
-#certificate p{
+.front p{
   font-size: 50%;
-  text-align: center;
 }
 
-#certificate h3{
+.front h3{
   font-size: 50%;
-  text-align: center;
 }
+
+
 
 /*Blog button*/
 

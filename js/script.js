@@ -32,7 +32,7 @@ window.addEventListener("scroll", () => {
     lastScrollY = window.scrollY;
 });
 
-
+//future projects: Paintboard: TypeScript, ReactJS ; Gitlet: Java ; Sad Wheels : JavaScript ; Proofread : Kotlin, Python;
 let projects = [
     {
       name:"Discrete Structures",
@@ -94,18 +94,6 @@ function changeProject(pressed){
     let pos = document.getElementById('project-container').offsetWidth;
     clearInterval(t);
     if(pressed == 'left'){
-      // console.log("left clicked " + pos);
-      // //user pushed right arrow
-      // project.style.left = -pos+"px";
-      // t = setInterval(function(){
-      //   if(pos <= 0) {
-      //     clearInterval(t);
-      //   }
-      //   else{
-      //     pos -= 5;
-      //     project.style.left = -pos+"px";
-      //   }
-      // }, 1);
       project.style.animationName = "left";
       if(currentProjIndex != 0)
         currentProjIndex--;
@@ -114,18 +102,6 @@ function changeProject(pressed){
     }
     else
     {
-      // console.log("right clicked " + pos);
-      // //user pushed right arrow
-      // project.style.left = pos+"px";
-      // t = setInterval(function(){
-      //   if(pos <= 0) {
-      //     clearInterval(t);
-      //   }
-      //   else{
-      //     pos -= 5;
-      //     project.style.left = pos+"px";
-      //   }
-      // }, 1);
       project.style.animationName = "right";
       if(currentProjIndex != projects.length-1)
         currentProjIndex++;  
@@ -146,30 +122,35 @@ let certificates = [
     img: "./assets/sololearn.avif",
     desc: "Course Certificate",
     date: "October 2022",
+    ref: "./assets/jscert.png",
   },
   {
     name: "HTML",
     img: "./assets/sololearn.avif",
     desc: "Course Certificate",
     date: "October 2022",
+    ref: "./assets/htmlcert.png",
   },
   {
     name: "SQL",
     img: "./assets/sololearn.avif",
     desc: "Course Certificate",
     date: "October 2022",
+    ref: "./assets/sqlcert.png",
   },
   {
     name: "CSS",
     img: "./assets/sololearn.avif",
     desc: "Course Certificate",
     date: "March 2023",
+    ref: "./assets/csscert.png",
   },
   {
-    name: "Swift",
+    name: "JavaScript Intermediate",
     img: "./assets/sololearn.avif",
     desc: "Course Certificate",
     date: "March 2023",
+    ref: './assets/jsintermediatecert.png',
   },
 ]
 
@@ -177,27 +158,42 @@ let certColumn = document.getElementById('cert-container');
 
 
 let cert = document.createElement('div');
+cert.classList.add('cert-slide');
 cert.id = 'certificate';
 certColumn.appendChild(cert);
-let certImg = document.createElement('img');
-certImg.src=certificates[0].img;
-cert.appendChild(certImg);
+let front = document.createElement('div');
+front.classList.add('front');
+cert.appendChild(front);
+let back = document.createElement('div');
+back.classList.add('back');
+cert.appendChild(back);
+let frontImg = document.createElement('img');
+frontImg.id = 'frontImg';
+frontImg.src=certificates[0].img;
+front.appendChild(frontImg);
 let certName = document.createElement('h2');
 certName.innerHTML = certificates[0].name;
-cert.appendChild(certName);
+front.appendChild(certName);
 let certDesc = document.createElement('p');
 certDesc.innerHTML=certificates[0].desc;
-cert.appendChild(certDesc);
+front.appendChild(certDesc);
 let date = document.createElement('h3');
 date.innerHTML=certificates[0].date;
-cert.appendChild(date);
+front.appendChild(date);
+let backImg = document.createElement('img');
+backImg.id = 'backImg';
+backImg.src = certificates[0].ref;
+back.appendChild(backImg);
+
 
 function changeCert(index){
   cert.style.animationName = "certAnimate";
-  certImg.src = certificates[index].img;
+  // cert.onclick = `location.href=${certificates[index].ref}`;
+  frontImg.src = certificates[index].img;
   certName.innerHTML = certificates[index].name;
   certDesc.innerHTML = certificates[index].desc;
   date.innerHTML = certificates[index].date;
+  backImg.src = certificates[index].ref;
   setTimeout(() => {  cert.style.animationName = "none"; }, 1000);
 }
 
