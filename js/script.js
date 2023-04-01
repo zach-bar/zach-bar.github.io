@@ -33,15 +33,15 @@ window.addEventListener("scroll", () => {
 });
 
 let about_pics = [
-  "./assets/img1.JPG",
-  "./assets/img2.JPG",
-  "./assets/img3.JPG",
-  "./assets/img4.JPG",
-  "./assets/img5.JPG",
+  "./assets/img1.jpg",
+  "./assets/img2.jpg",
+  "./assets/img3.jpg",
+  "./assets/img4.jpg",
+  "./assets/img5.jpg",
   "./assets/img6.JPG",
-  "./assets/img7.JPG",
+  "./assets/img7.jpg",
   "./assets/img8.JPG",
-  "./assets/img9.JPG",
+  "./assets/img9.jpg",
 ]
 let about = document.getElementById("self-description");
 let pic = document.createElement('img');
