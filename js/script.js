@@ -32,13 +32,52 @@ window.addEventListener("scroll", () => {
     lastScrollY = window.scrollY;
 });
 
-//future projects: Paintboard: TypeScript, ReactJS ; Gitlet: Java ; Sad Wheels : JavaScript ; Proofread : Kotlin, Python;
+let about_pics = [
+  "./assets/img1.jpg",
+  "./assets/img2.jpg",
+  "./assets/img3.jpg",
+  "./assets/img4.jpg",
+  "./assets/img5.jpg",
+  "./assets/img6.jpg",
+  "./assets/img7.jpg",
+  "./assets/img8.jpg",
+  "./assets/img9.jpg",
+]
+let about = document.getElementById("self-description");
+let pic = document.createElement('img');
+pic.id = "self-desc-pic";
+pic.src = about_pics[0];
+about.appendChild(pic);
+var counter = 1;
+var timer;
+pic.onmouseover= stopShow();
+pic.onmouseout= runShow();               
+function changeImage(){
+  pic.style.animationName = "blink";
+  pic.src = about_pics[counter];
+  counter++;
+  if (counter == about_pics.length){
+      counter=0;
+  }
+  setTimeout(() => {  pic.style.animationName = "none"; }, 1000);
+  timer = setTimeout("changeImage()", 2500);
+}
+function stopShow(){
+    clearTimeout(timer);
+}
+function runShow(){
+    changeImage();
+}
+                    
+
+
+//future projects: Pixel Canvas: TypeScript, ReactJS ; Gitlet: Java; Trading Software: C++
 let projects = [
     {
-      name:"Discrete Structures",
-      description:"Program that takes two propositional inputs, with a boolean value for both. The program then outputs a list of statements with propositions and connectives. Once user chooses statement from list, boolean values of each proposition is placed in the necessary function, and the truth value of said statement is output to user.",
-      image: "./assets/discretestructures.png",
-      language: "C++",
+      name:"Music Artist Recommender",
+      description:"Program that takes datasets from Last.FM (https://grouplens.org/datasets/hetrec-2011/) and implements collaborative filtering, a machine learning tool, utlizing the Implicit library to recommend new artists to users listed in the dataset.",
+      image: "./assets/music.png",
+      language: "Python",
     },
    {
       name:"Advanced Tic-Tac-Toe",

@@ -45,7 +45,7 @@ blogs = [
       image: "./assets/gaming.png",
       date: "April 10, 2023",
       type: "Tutorials",
-      post: "Nothing here yet! Check back on 4/10",
+      post: "<span>Sometimes, the task of chasing a career in programming can be quite tasking. We all feel it, the sudden dread and anxiety that everyone in the room can conjure up matrix calculations in their head, the imposter syndrome from not spending every minute of the day coding. Most of us will turn to video games to tune out the noise, but as we do so we fail to realize that we could be creators of such a game.</span> <br/> <span>This realization is how roadblock can lead to innovation, and why you should keep reading this article. Throughout this piece, I will take you through everything you need to know about game development on the web, using only Vanilla JavaScript for programming and CSS for styling.</span> <br/> <canvas id='blogGame' width='600' height='200' align='center'>Your web browser does not support HTML5</canvas>",
     }
   ]
   let blogContainer = document.getElementById('blogs-container');
@@ -103,6 +103,8 @@ function showBlog(index){
   blogpost.appendChild(blogImg);
   let blogtext =document.createElement('p');
   blogtext.innerHTML = blogs[index].post;
+  blogtext.align = 'center';
+
   blogpost.appendChild(blogtext);
   let blogDate = document.createElement('h3');
   blogDate.innerHTML=blogs[index].date;
@@ -114,4 +116,37 @@ function changeBack(){
   blogColumn.style.display = 'flex';
 }
 
+let gameBlog = document.getElementById("blog1");
+gameBlog.onclick = function(){
+  let blogGame = document.getElementById("blogGame");
+  let context = blogGame.getContext("2d");
+  context.beginPath();
+  context.moveTo(0, 180)
+  context.lineTo(600, 180);
+  context.stroke();
+  let dinoStill = new Image();
+  dinoStill.src = "./assets/dino-still.png";
+  dinoStill.onload = function(){
+    context.beginPath();
+    context.drawImage(dinoStill, 20, 135, 70, 80); 
+  }
+  let cactus1 = new Image();
+  cactus1.src = "./assets/cactus1.png";
+  cactus1.onload = function(){
+    context.beginPath();
+    context.drawImage(cactus1, 450, 135, 40, 60); 
+  }
+  let birdWingDown = new Image();
+  birdWingDown.src = "./assets/bird-wingdown.png";
+  birdWingDown.onload = function(){
+    context.beginPath();
+    context.drawImage(birdWingDown, 500, 45, 60, 60); 
+  }
+  let cloud = new Image();
+  cloud.src = "./assets/cloud.png";
+  cloud.onload = function(){
+    context.beginPath();
+    context.drawImage(cloud, 180, 30, 50, 30); 
+  }
+}
 
