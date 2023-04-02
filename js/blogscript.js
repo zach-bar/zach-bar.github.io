@@ -45,7 +45,7 @@ blogs = [
       image: "./assets/gaming.png",
       date: "April 10, 2023",
       type: "Tutorials",
-      post: "<span>Sometimes, the task of chasing a career in programming can be quite tasking. We all feel it, the sudden dread and anxiety that everyone in the room can conjure up matrix calculations in their head, the imposter syndrome from not spending every minute of the day coding. Most of us will turn to video games to tune out the noise, but as we do so we fail to realize that we could be creators of such a game.</span> <br/> <span>This realization is how roadblock can lead to innovation, and why you should keep reading this article. Throughout this piece, I will take you through everything you need to know about game development on the web, using only Vanilla JavaScript for programming and CSS for styling.</span> <br/> <canvas id='blogGame' width='600' height='200' align='center'>Your web browser does not support HTML5</canvas>",
+      post: "Nothing here yet. Check back on 4/10!"
     }
   ]
   let blogContainer = document.getElementById('blogs-container');
