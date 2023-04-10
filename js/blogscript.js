@@ -43,9 +43,9 @@ blogs = [
     {
       title: "How To Make Your Own JavaScript Game",
       image: "./assets/gaming.png",
-      date: "April 10, 2023",
+      date: "April 20, 2023",
       type: "Tutorials",
-      post: "Nothing here yet. Check back on 4/10!"
+      post: "Nothing yet. Check back on 4/20!"
     }
   ]
   let blogContainer = document.getElementById('blogs-container');
