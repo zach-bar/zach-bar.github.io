@@ -342,7 +342,7 @@ body {
   margin-right: auto;
 } */
 
-#video {
+/* #video {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -392,6 +392,60 @@ body {
   margin-left: 3vw;
   width: 360px;
   height: 240px;
+} */
+
+#self-description{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 80vh;
+  background-color: #000033;
+}
+
+#self-desc-header{
+  margin-left: 30vw;
+  text-align: center;
+  color: #fff;
+  font-family: 'Nobel', sans-serif;
+  font-size: 300%;
+}
+
+#self-desc-text{
+  margin-left: 40vw;
+  text-align: left;
+  background-color: #000026;
+  height: 60%;
+  width: 50%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#self-desc-text p{
+  color: #fff;
+  text-indent: 40px;
+}
+
+#right {
+  text-align: right;
+  padding-right: 10px;
+}
+
+#self-description img{
+  height: 400px;
+  width: 320px;
+  float: left;
+  margin-left: 10vw;
+  margin-top: -50vh;
+  animation-name: blink;
+  animation-duration: 1s;
+  object-fit: cover;
+}
+
+@keyframes blink{
+  0% {transform: none;}
+  1% {transform: scale(0.5, 0.01);}
+  20% {transform: scale(1, 1);}
+  100% {transform: scale(1, 1);}
 }
 
 #divider3 {
@@ -494,7 +548,9 @@ body {
   width: 500%;
   height: 440px;
   display: flex;
+  /* position: absolute; */
 }
+
 .project-slides input{
   display: none;
 }
@@ -510,6 +566,23 @@ body {
   position: relative;
   font-family: "Nobel", sans-serif;
   background-color: #757575;
+  animation: none;
+  animation-duration: 1s;
+}
+
+#project{
+  animation: none;
+  animation-duration: 1s;
+}
+
+@keyframes right{
+  0% {left: 500px;}
+  100% {left: 0px;}
+}
+
+@keyframes left{
+  0% {right: 500px;}
+  100% {right: 0px;}
 }
 
 .slide h1{
@@ -567,16 +640,18 @@ body {
 
 .cert-slider{
   margin-top: 10vh;
-  width: 200px;
-  height: 120px;
+  width: 350px;
+  height: 500px;
   display: flex;
-  overflow: hidden; 
+  /* overflow: hidden;  */
 }
 
 .cert-slides{
-  width: 500%;
-  height: 150px;
+  width: 350px;
+  height: 500px;
   display: flex;
+  position: initial;
+  perspective: 1000px;
 }
 
 .cert-slides input{
@@ -586,16 +661,56 @@ body {
 #certificate{
   width: 100%;
   transition: 2s;
+  transform-style: preserve-3d;
   position: relative;
   text-align: center;
   font-family: "Nobel", sans-serif;
+  animation-name: none;
+  animation-duration: 1s;
 }
 
-#certificate img{
-  width: 150px;
-  height: 35px;
+.cert-slides:hover .cert-slide{
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 350px;
+  height: 500px;
+}
+
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+@keyframes certAnimate{
+  0% {bottom: 0px;}
+  50% {bottom: 50px;}
+  100% {bottom: 0px;}
+}
+
+#frontImg{
+  width: 250px;
+  height: 55px;
   padding-left:25px;
   padding-right:25px;
+  text-align: center;
+}
+
+#backImg{
+  padding-top: 100px;
+  justify-content: center;
+  align-items: center;
+  height: 300%;
+  overflow:visible;
+  object-fit: cover;
+  
 }
 
 .manual-nav{
@@ -630,19 +745,50 @@ body {
   margin-top: 140px;
 }
 
-#certificate h2{
+.front h2{
   font-size: 80%;
-  text-align: center;
+  margin-left: 100px;
+  text-align: left;
 }
 
-#certificate p{
+.front p{
   font-size: 50%;
-  text-align: center;
+  margin-left: 100px;
+  text-align: left;
 }
 
-#certificate h3{
+.front h3{
   font-size: 50%;
-  text-align: center;
+  margin-left: 100px;
+  text-align: left;
+}
+
+
+
+/*Blog button*/
+
+#blog-ref-container{
+  width: 100%;
+  height: 40vh;
+  background: linear-gradient(0.25turn, #cb6ec6, #cbc3e3);
+  color: #fff;
+  font-family: "Nobel", sans-serif;
+  cursor: pointer;
+}
+#blog-ref-container h2{
+  font-size: 140%;
+}
+
+#blog-ref-container h1{
+  font-size: 500%;
+  font-weight: 1000;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#blog-ref-container:hover{
+  transition: 1s;
+  background: linear-gradient(0.25turn, #cbc3e3, #5c1ad9);
+  color: #f1f1f1;
 }
 
 /*Contact Page */
@@ -795,6 +941,10 @@ input[type=submit]:hover {
   object-fit: contain;
 }
 
+.blog button {
+  z-index: 6;
+}
+
 #blogpost {
   display: block;
   width: 80%;
@@ -817,12 +967,19 @@ input[type=submit]:hover {
 
 #blogpost p {
   font-size: 150%;
+}
+
+#blogpost span {
+  display: inline-block;
   text-indent: 40px;
+  text-align: left;
 }
 
 #blogpost h3 {
   color: #757575;
   text-align: center;
+  position: relative;
+  padding-top: 20px;
 }
 
 #blogpost h2{
@@ -840,6 +997,16 @@ input[type=submit]:hover {
   color: #fff;
   font-size: 150%;
   cursor: pointer;
+}
+
+#blogpost p i {
+  float: right;
+  right: 80px;
+  font-family: 'Lucida Calligraphy', sans-serif;
+}
+
+#blogGame {
+  background-color: #fff;
 }
 
 /* For computer screen */

@@ -32,13 +32,52 @@ window.addEventListener("scroll", () => {
     lastScrollY = window.scrollY;
 });
 
+let about_pics = [
+  "./assets/img1.JPG",
+  "./assets/img2.JPG",
+  "./assets/img3.JPG",
+  "./assets/img4.JPG",
+  "./assets/img5.JPG",
+  "./assets/img6.JPG",
+  "./assets/img7.JPG",
+  "./assets/img8.JPG",
+  "./assets/img9.JPG",
+]
+let about = document.getElementById("self-description");
+let pic = document.createElement('img');
+pic.id = "self-desc-pic";
+pic.src = about_pics[0];
+about.appendChild(pic);
+var counter = 1;
+var timer;
+pic.onmouseover= stopShow();
+pic.onmouseout= runShow();               
+function changeImage(){
+  pic.style.animationName = "blink";
+  pic.src = about_pics[counter];
+  counter++;
+  if (counter == about_pics.length){
+      counter=0;
+  }
+  setTimeout(() => {  pic.style.animationName = "none"; }, 1000);
+  timer = setTimeout("changeImage()", 2500);
+}
+function stopShow(){
+    clearTimeout(timer);
+}
+function runShow(){
+    changeImage();
+}
+                    
 
+
+//future projects: Pixel Canvas: TypeScript, ReactJS ; Gitlet: Java; Trading Software: C++
 let projects = [
     {
-      name:"Discrete Structures",
-      description:"Program that takes two propositional inputs, with a boolean value for both. The program then outputs a list of statements with propositions and connectives. Once user chooses statement from list, boolean values of each proposition is placed in the necessary function, and the truth value of said statement is output to user.",
-      image: "./assets/discretestructures.png",
-      language: "C++",
+      name:"Music Artist Recommender",
+      description:"Program that takes datasets from Last.FM (https://grouplens.org/datasets/hetrec-2011/) and implements collaborative filtering, a machine learning tool, utlizing the Implicit library to recommend new artists to users listed in the dataset.",
+      image: "./assets/music.png",
+      language: "Python",
     },
    {
       name:"Advanced Tic-Tac-Toe",
@@ -69,7 +108,7 @@ let projects = [
 let projectColumn = document.getElementById('project-container');
 
 
-let project = document.createElement('div');
+const project = document.createElement('div');
 project.classList.add('slide');
 project.id = 'project';
 projectColumn.appendChild(project);
@@ -86,11 +125,15 @@ let lang = document.createElement('h3');
 lang.innerHTML=projects[0].language;
 project.appendChild(lang);
 
-
 let currentProjIndex = 0;
 let i = 0;
+let t;
+
 function changeProject(pressed){
+    let pos = document.getElementById('project-container').offsetWidth;
+    clearInterval(t);
     if(pressed == 'left'){
+      project.style.animationName = "left";
       if(currentProjIndex != 0)
         currentProjIndex--;
       else
@@ -98,16 +141,18 @@ function changeProject(pressed){
     }
     else
     {
-      //user pushed right arrow
+      project.style.animationName = "right";
       if(currentProjIndex != projects.length-1)
         currentProjIndex++;  
       else
         currentProjIndex = 0;    
     }
+    
     name.innerHTML = projects[currentProjIndex].name;
     img.src = projects[currentProjIndex].image;
     desc.innerHTML = projects[currentProjIndex].description;
     lang.innerHTML = projects[currentProjIndex].language;
+    setTimeout(() => {  project.style.animationName = "none"; }, 1000);
   }
 
 let certificates = [
@@ -116,30 +161,35 @@ let certificates = [
     img: "./assets/sololearn.avif",
     desc: "Course Certificate",
     date: "October 2022",
+    ref: "./assets/jscert.png",
   },
   {
     name: "HTML",
     img: "./assets/sololearn.avif",
     desc: "Course Certificate",
     date: "October 2022",
+    ref: "./assets/htmlcert.png",
   },
   {
     name: "SQL",
     img: "./assets/sololearn.avif",
     desc: "Course Certificate",
     date: "October 2022",
+    ref: "./assets/sqlcert.png",
   },
   {
     name: "CSS",
     img: "./assets/sololearn.avif",
     desc: "Course Certificate",
     date: "March 2023",
+    ref: "./assets/csscert.png",
   },
   {
-    name: "Swift",
+    name: "JavaScript Intermediate",
     img: "./assets/sololearn.avif",
     desc: "Course Certificate",
     date: "March 2023",
+    ref: './assets/jsintermediatecert.png',
   },
 ]
 
@@ -147,26 +197,43 @@ let certColumn = document.getElementById('cert-container');
 
 
 let cert = document.createElement('div');
+cert.classList.add('cert-slide');
 cert.id = 'certificate';
 certColumn.appendChild(cert);
-let certImg = document.createElement('img');
-certImg.src=certificates[0].img;
-cert.appendChild(certImg);
+let front = document.createElement('div');
+front.classList.add('front');
+cert.appendChild(front);
+let back = document.createElement('div');
+back.classList.add('back');
+cert.appendChild(back);
+let frontImg = document.createElement('img');
+frontImg.id = 'frontImg';
+frontImg.src=certificates[0].img;
+front.appendChild(frontImg);
 let certName = document.createElement('h2');
 certName.innerHTML = certificates[0].name;
-cert.appendChild(certName);
+front.appendChild(certName);
 let certDesc = document.createElement('p');
 certDesc.innerHTML=certificates[0].desc;
-cert.appendChild(certDesc);
+front.appendChild(certDesc);
 let date = document.createElement('h3');
 date.innerHTML=certificates[0].date;
-cert.appendChild(date);
+front.appendChild(date);
+let backImg = document.createElement('img');
+backImg.id = 'backImg';
+backImg.src = certificates[0].ref;
+back.appendChild(backImg);
+
 
 function changeCert(index){
-  certImg.src = certificates[index].img;
+  cert.style.animationName = "certAnimate";
+  // cert.onclick = `location.href=${certificates[index].ref}`;
+  frontImg.src = certificates[index].img;
   certName.innerHTML = certificates[index].name;
   certDesc.innerHTML = certificates[index].desc;
   date.innerHTML = certificates[index].date;
+  backImg.src = certificates[index].ref;
+  setTimeout(() => {  cert.style.animationName = "none"; }, 1000);
 }
 
 
