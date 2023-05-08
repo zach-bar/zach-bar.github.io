@@ -443,7 +443,8 @@ body {
 
 @keyframes blink{
   0% {transform: none;}
-  50% {transform: scale(0.5, 0.01);}
+  1% {transform: scale(0.5, 0.01);}
+  20% {transform: scale(1, 1);}
   100% {transform: scale(1, 1);}
 }
 
