@@ -71,8 +71,14 @@ function runShow(){
                     
 
 
-//future projects: Pixel Canvas: TypeScript, ReactJS ; Gitlet: Java; Trading Software: C++
+//future projects: Gitlet: Java; Trading Software: C++
 let projects = [
+    {
+      name:"Pixel Paintboard",
+      description:"A paintboard app where you can easily create your very own pixel art and upload it is a PNG to your local device.",
+      image: "./assets/pixel.png",
+      language: "React, SCSS",
+    },
     {
       name:"Music Artist Recommender",
       description:"Program that takes datasets from Last.FM (https://grouplens.org/datasets/hetrec-2011/) and implements collaborative filtering, a machine learning tool, utlizing the Implicit library to recommend new artists to users listed in the dataset.",
