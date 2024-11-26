@@ -32,37 +32,37 @@ function show(shown, hidden) {
       lastScrollY = window.scrollY;
   });
   
-  let about_pics = [
-    "./assets/img1.jpg",
-    "./assets/img3.jpg",
-    "./assets/img4.jpg",
-    "./assets/img6.JPG",
-    "./assets/img7.jpg",
-    "./assets/img9.jpg",
-  ]
-  let about = document.getElementById("self-description");
-  let pic = document.createElement('img');
-  pic.id = "self-desc-pic";
-  pic.src = about_pics[0];
-  about.appendChild(pic);
-  var counter = 1;
-  var timer;
-  pic.onmouseover= stopShow();
-  pic.onmouseout= runShow();               
-  function changeImage(){
-    pic.style.animationName = "blink";
-    pic.src = about_pics[counter];
-    counter++;
-    if (counter == about_pics.length){
-        counter=0;
-    }
-    setTimeout(() => {  pic.style.animationName = "none"; }, 1000);
-    timer = setTimeout("changeImage()", 2500);
-  }
-  function stopShow(){
-      clearTimeout(timer);
-  }
-  function runShow(){
-      changeImage();
-  }
+  // let about_pics = [
+  //   "./assets/img1.jpg",
+  //   "./assets/img3.jpg",
+  //   "./assets/img4.jpg",
+  //   "./assets/img6.JPG",
+  //   "./assets/img7.jpg",
+  //   "./assets/img9.jpg",
+  // ]
+  // let about = document.getElementById("self-description");
+  // let pic = document.createElement('img');
+  // pic.id = "self-desc-pic";
+  // pic.src = about_pics[0];
+  // about.appendChild(pic);
+  // var counter = 1;
+  // var timer;
+  // pic.onmouseover= stopShow();
+  // pic.onmouseout= runShow();               
+  // function changeImage(){
+  //   pic.style.animationName = "blink";
+  //   pic.src = about_pics[counter];
+  //   counter++;
+  //   if (counter == about_pics.length){
+  //       counter=0;
+  //   }
+  //   setTimeout(() => {  pic.style.animationName = "none"; }, 1000);
+  //   timer = setTimeout("changeImage()", 2500);
+  // }
+  // function stopShow(){
+  //     clearTimeout(timer);
+  // }
+  // function runShow(){
+  //     changeImage();
+  // }
     
